@@ -48,9 +48,35 @@ class LetterCell: UICollectionViewCell {
    
    // Checkpoint: After finishing this exercise, you should now see that the board is accurately colored based on your guess! If it's not working, make sure you have done this exercise correctly.
    */
-  func set(style: LetterCellStyle) {
-    // START YOUR CODE HERE
-    // ...
-    // END YOUR CODE HERE
-  }
+    func set(style: LetterCellStyle) {
+      switch style {
+      case .initial:
+        // black background, gray border
+        contentView.backgroundColor = .black
+        layer.borderColor = UIColor.gray.cgColor
+        letterLabel.textColor = .white
+
+      case .incorrect:
+        // RGBA: 0.23, 0.23, 0.24, 1.0
+        let color = UIColor(red: 0.23, green: 0.23, blue: 0.24, alpha: 1.0)
+        contentView.backgroundColor = color
+        layer.borderColor = color.cgColor
+        letterLabel.textColor = .white
+
+      case .correctLetterOnly:
+        // RGBA: 0.69, 0.63, 0.30, 1.0
+        let color = UIColor(red: 0.69, green: 0.63, blue: 0.30, alpha: 1.0)
+        contentView.backgroundColor = color
+        layer.borderColor = color.cgColor
+        letterLabel.textColor = .white
+
+      case .correctLetterAndPosition:
+        // RGBA: 0.38, 0.55, 0.33, 1.0
+        let color = UIColor(red: 0.38, green: 0.55, blue: 0.33, alpha: 1.0)
+        contentView.backgroundColor = color
+        layer.borderColor = color.cgColor
+        letterLabel.textColor = .white
+      }
+    }
+
 }
